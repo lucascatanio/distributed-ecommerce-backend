@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: ecommerce-monolith
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ecommerce_db
+    username: ecommerce
+    password: ecommerce123
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 20000
+      idle-timeout: 300000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # nn usa update em prod pelo amor de deus
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    com.catanio.ecommerce: DEBUG
+    org.hibernate.SQL: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  jpa:
+    show-sql: false
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+logging:
+  level:
+    com.ecommerce: INFO
+    org.hibernate.SQL: WARN
