@@ -82,4 +82,8 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
     // Usado antes de deletar uma categoria
     @Query("SELECT COUNT(p) FROM Product p WHERE p.category.id = :categoryId AND p.deletedAt IS NULL")
     long countActiveByCategoryId(@Param("categoryId") UUID categoryId);
+
+    @Query("SELECT p FROM Product p JOIN FETCH p.category WHERE p.id = :id AND p.deletedAt IS NULL")
+    Optional<Product> findActiveByIdWithCategory(@Param("id") UUID id);
+
 }
