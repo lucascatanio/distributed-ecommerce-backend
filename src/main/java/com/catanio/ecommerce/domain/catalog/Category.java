@@ -44,11 +44,12 @@ public class Category {
         return category;
     }
 
-    public void updateName(String newName) {
+    public void update(String newName, String newDescription) {
         if (newName == null || newName.isBlank()) {
             throw new IllegalArgumentException("Category name cannot be blank");
         }
         this.name = newName.trim();
+        this.description = newDescription;
         this.updatedAt = Instant.now();
     }
 
