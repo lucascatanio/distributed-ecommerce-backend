@@ -212,14 +212,15 @@ Full specification: [docs/requirements.md](docs/requirements.md)
 
 Significant decisions are documented as ADRs at the moment they are made.
 
-| ADR | Title | Sprint | Status |
-|---|---|---|---|
-| [001](docs/adr/001-postgresql.md) | PostgreSQL as primary database | 1 | Accepted |
-| [002](docs/adr/002-hexagonal-architecture.md) | Hexagonal Architecture | 1 | Accepted |
-| 003 | Outbox Pattern for event publishing | 14 | Pending |
-| 004 | Saga Pattern for distributed transactions | 15 | Pending |
-| 005 | Cursor-based pagination | 10 | Pending |
-| 006 | Quarkus Native for Notification Service | 30 | Pending |
+| ADR | Title | Sprint |
+|---|---|---|
+| [001](docs/adr/001-postgresql.md) | PostgreSQL as primary database | 1 |
+| [002](docs/adr/002-hexagonal-architecture.md) | Hexagonal Architecture | 1 |
+| [003](docs/adr/003-pragmatic-repositories.md) | Spring Data JPA repositories in infrastructure layer | 2 |
+| 003 | Outbox Pattern for event publishing | 14 |
+| 004 | Saga Pattern for distributed transactions | 15 |
+| 005 | Cursor-based pagination | 10 |
+| 006 | Quarkus Native for Notification Service | 30 |
 
 ---
 

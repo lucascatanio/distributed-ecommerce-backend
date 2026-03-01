@@ -15,7 +15,8 @@ Each ADR follows this template:
 
 ## Index
 
-| ADR | Title | Sprint |
-|-----|-------|--------|
-| [001](001-postgresql.md) | PostgreSQL as primary database | 1 |
-| [002](002-hexagonal-architecture.md) | Hexagonal Architecture for monolith | 1 |
+| ADR                                  | Title | Sprint |
+|--------------------------------------|-------|--------|
+| [001](001-postgresql.md)             | PostgreSQL as primary database | 1      |
+| [002](002-hexagonal-architecture.md) | Hexagonal Architecture for monolith | 1      |
+| [003](002-hexagonal-architecture.md) | Spring Data JPA repositories in infrastructure layer | 2      |
