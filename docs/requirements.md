@@ -88,3 +88,24 @@
 - Hexagonal Architecture
 - All architectural decisions documented as ADRs
 - Conventional commits + semantic versioning
+
+---
+
+## Data Lifecycle & Soft Delete Policy
+
+All business entities use soft delete via `deleted_at` — no hard deletes in production.
+
+| Entity | Soft Delete         | Rationale |
+|--------|---------------------|-----------|
+| `products` | yes                 | Order history must reference original product |
+| `categories` | yes                 | Order history must reference original category |
+| `users` | yes                 | LGPD — data not immediately removed on account closure |
+| `orders` | Never deleted       | Immutable financial record |
+| `order_items` | Never deleted       | Immutable financial record |
+| `carts` | Expire after 7 days | No business history needed |
+
+### Rules
+- A category can only be soft-deleted if it has zero **active** products
+- A soft-deleted category is invisible to all public API endpoints
+- A soft-deleted product does not count toward category active product totals
+- Reactivation of soft-deleted entities is an admin operation (future scope)

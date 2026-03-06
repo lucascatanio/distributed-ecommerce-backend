@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 public record Email(String value) {
 
+    // não é a validação perfeita, apenas provisória, dps vamos usar bean validation nos DTOs
     private static final Pattern EMAIL_PATTERN =
             Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
 
